@@ -1,11 +1,17 @@
 import numpy as np
 
+import pygame
+
 class Connect4():
     def __init__(self,N):
         self.N = N
+        self.n_players = 2
         self.state = np.zeros((N,N))
         self.current_player = 1
-        self.n_players = 2
+
+    def reset(self):
+        self.state = np.zeros((self.N,self.N))
+        self.current_player = 1
     
     def possible_moves(self):
         player = self.current_player
@@ -52,22 +58,16 @@ class Connect4():
                             #print k
                             return x
         return 0
-
-"""c = Connect4(5)
-c.print_board()
-c.play_move(1,1)
-c.play_move(0,2)
-c.play_move(2,1)
-c.play_move(1,2)
-c.play_move(2,1)
-c.play_move(2,2)
-c.play_move(3,1)
-c.play_move(3,1)
-c.play_move(3,1)
-c.play_move(3,2)
-c.play_move(3,2)
-c.play_move(3,2)
-c.print_board()
-print 'Winner',c.winner()
-print c.possible_moves()
-"""
+        
+    def render(self,screen):
+        width,height = (300,500)
+        col_list = [(255,255,255),(255,0,0),(0,0,255),(0,0,0)]
+        background = col_list[-1]
+        screen.fill(background)
+        sx = 100
+        sy = 60
+        for i in range(self.state.shape[0]):
+            for j in range(self.state.shape[1]):
+                col = col_list[int(self.state[i,j])]
+                pygame.draw.circle(screen,col,(j*sy+25,i*sx+25),20)
+        pygame.display.update()
