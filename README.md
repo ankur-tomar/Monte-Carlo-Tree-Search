@@ -1,6 +1,6 @@
 # Monte-Carlo-Tree-Search
 
-This module implements Monte Carlo Tree Search to play 2 player board games. As demonstration, we've implemented Connect4. The program is loosely based on the [AlphaGo paper](https://www.nature.com/articles/nature16961) (heavily simplified). There are 2 versions of the algorithm:
+This module implements Monte Carlo Tree Search to play 2 player board games. As demonstration, we've implemented Connect4. The program is loosely based on the [AlphaGo paper](https://www.nature.com/articles/nature16961) (though heavily simplified). There are 2 versions of the algorithm:
 
 1. Pure MCTS: This is the basic MCTS algorithm. It uses lookahead for every move, i.e., every time the computer must play a move, it expands the game tree and runs simulations in the subtree to identify the best child state (then moves to reach that state).
 

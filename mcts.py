@@ -245,6 +245,7 @@ eps = 1e-8
 bz = 5
 epch = 100
 tc = 0.8
+n_games_for_ds = 2000
 dsfile = './model/conn4data.npy'
 model_path = './model/model'
 #########################################
@@ -269,8 +270,7 @@ if len(sys.argv) >= 4:
 c = Connect4(5,graphics=graphics)
 if sys.argv[1] == 'dgen':
     m = MCTS(c,mode='dgen')
-    n_games = 2000
-    m.datagen(n_games,dsfile)
+    m.datagen(n_games_for_ds,dsfile)
 
 elif sys.argv[1] == 'play':
     m = MCTS(c,mode='play',model_path=model_path)
