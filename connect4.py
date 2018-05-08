@@ -1,23 +1,30 @@
+# Module implementing the game connect4.
+#
+# Authors: Prithvijit Chakrabarty (prithvichakra@gmail.com), Ankur Tomar (atomar@umass.edu)
+
 import numpy as np
 
-import pygame
-
 class Connect4():
-    def __init__(self,N):
+    def __init__(self,N,graphics=False):
         self.N = N
         self.n_players = 2
         self.state = np.zeros((N,N))
         self.current_player = 1
+        self.graphics = graphics
+        if graphics == True:
+            import pygame
 
     def reset(self):
         self.state = np.zeros((self.N,self.N))
         self.current_player = 1
     
+    #Return possible moves from current state
     def possible_moves(self):
         player = self.current_player
         allowed = [c for c in range(self.N) if (0 in self.state[:,c])]
         return allowed
 
+    #Play a move
     def play_move(self,col):
         p = self.current_player
         for i in range(self.N-1,-1,-1):
@@ -33,6 +40,7 @@ class Connect4():
         print 'Board:'
         print self.state
 
+    #Identify winners in current state
     def winner(self):
         N = self.N
         for i in range(N):
@@ -59,7 +67,10 @@ class Connect4():
                             return x
         return 0
         
+    #Render the state to graphics
     def render(self,screen):
+        if self.graphics:
+            import pygame
         width,height = (300,500)
         col_list = [(255,255,255),(255,0,0),(0,0,255),(0,0,0)]
         background = col_list[-1]
