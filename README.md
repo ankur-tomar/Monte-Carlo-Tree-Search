@@ -38,4 +38,4 @@ With the new dataset, a new model may be trained for better performance. To do t
 
 **Output**
 With the requirements, running the gameplay with the graphics options should be as follows:
-![snapshot](snap.png?raw=True){width: 200px; }
+![snapshot]{width: 200px; }(snap.png?raw=True)
