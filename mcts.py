@@ -246,7 +246,7 @@ bz = 5
 epch = 100
 tc = 0.8
 dsfile = './model/conn4data.npy'
-model_path = './model'
+model_path = './model/model'
 #########################################
 
 #Command line option parsing
