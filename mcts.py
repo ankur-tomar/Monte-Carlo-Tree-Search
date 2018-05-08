@@ -61,14 +61,13 @@ class MCTS():
                 #Prediction with the trained neural net model
                 s = self.model.predict(self.board2vec(self.board.state))[0]
                 print s
-                """if False: #(s >= 0.45) & (s <= 0.55):
+                if False: #(s >= 0.3) & (s <= 0.5):
                     self.explore(child,pid,save_score=save_score)
                     nw,nt = self.scores[child_key]
                     c = 1
                     s = nw/float(nt)+c*np.sqrt(np.log(100)/nt)
-                """
             else:
-                #Predictin with dynamic MCTS tree expansion for exploration
+                #Prediction with dynamic MCTS tree expansion for exploration
                 if (not (child_key in self.scores)):
                     self.explore(child,pid,save_score=save_score)
                 elif (self.scores[child_key][1] < thresh):
@@ -106,7 +105,7 @@ class MCTS():
 
     #Explore the subtree below the current state
     def explore(self,start_state,pid,save_score=True):
-        n = 100
+        n = 120
         cur_state = self.board.state.copy()
         for _ in range(n):
             #Cache current state and player ID
@@ -188,7 +187,7 @@ class MCTS():
                 self.board.print_board()
                 print 'Winner:',w
                 if graphics == True:
-                    k = raw_input('press any key to end...')
+                    k = raw_input('press enter to end...')
                 break
 
     #Generate training data: play many games and save the scores dict. in dsfile
@@ -235,20 +234,20 @@ class MCTS():
         print 'ds size:',len(ds)
         np.save(dsfile,np.array(ds))
 
-##### PARAM CONTROLS HERE #####
+#####***** PARAM CONTROLS HERE *****#####
 arch = {'in_d':[3,5,5],
-        'nfilt':9,
+        'nfilt':25,
         'h1':200,
         'h2':200
        }
 lr = 1e-4
 eps = 1e-8
-bz = 15
-epch = 150
+bz = 5
+epch = 100
 tc = 0.8
 dsfile = './model/conn4data.npy'
-model_path = './model/model'
-##############################
+model_path = './model'
+#########################################
 
 #Command line option parsing
 use_nn = False
