@@ -27,7 +27,7 @@ The model is trained by making the program play against itself, for 2000 games. 
 
 1. Set the path to save the dataset as `dsfile` (edit line 249 in mcts.py)
 
-2. Set the number games to play to create the dataset (set `n_games_for_ds`,line 248 in mcts.py)
+2. Set the number games to play to create the dataset (set `n_games_for_ds`, line 248 in mcts.py)
 
 3. Run: `python mcts.py dgen nn`
 
