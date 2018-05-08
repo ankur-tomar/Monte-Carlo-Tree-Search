@@ -35,3 +35,7 @@ With the new dataset, a new model may be trained for better performance. To do t
 1. Set the path to save the model as `model_path` (edit line 250 in mcts.py)
 
 2. Run: `python mcts.py train nn`
+
+**Output**
+With the requirements, running the gameplay with the graphics options should be as follows:
+![snapshot](snap.png?raw=true)
