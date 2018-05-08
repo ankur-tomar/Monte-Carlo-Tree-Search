@@ -17,7 +17,7 @@ This module implements Monte Carlo Tree Search to play 2 player board games. As 
         python mcts.py nn
         
 Command 2 assumes you have `Python 2.7` and `TensorFlow` installed.
-Add the "graphics" option to display graphics: `python mcts.py pure graphics` or `python mcts.py nn graphics`. This requires `PyGame`.
+Add the "graphics" option to display board animation: `python mcts.py pure graphics` or `python mcts.py nn graphics`. This requires `PyGame`.
 
 If the graphics panel is not being update (this might occur on Mac OS, see [this link](https://stackoverflow.com/questions/47838446/pygame-window-not-receiving-keyboard-events-on-mac)), run the following instead: `pythonw mcts.py pure graphics` or `pythonw mcts.py nn graphics`.
 
@@ -40,5 +40,6 @@ With the new dataset, a new model may be trained for better performance. To do t
 2. Run: `python mcts.py train nn`
 
 **Output**
-With the requirements, running the gameplay with the graphics options should be as follows:
+
+With the requirements, running the module with the graphics option should appear as follows:
 ![snapshot](smallsnap.png?raw=True)
